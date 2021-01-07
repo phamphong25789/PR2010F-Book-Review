@@ -1,0 +1,28 @@
+<title>Review <%= @review.book.name %></title>
+<section class="review-book">
+	<div class="container-fluid">
+		<div class="row">
+			<h1><%= @review.book.name %></h1>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">
+				<img width="50px" src="https://upload.wikimedia.org/wikipedia/en/b/bd/Doraemon_character.png">
+			</div>
+			<div class="col-sm-10">
+				<b><%= @review.book.name %></b><br>
+				by <b><%= @review.book.author.name %></b>
+			</div>
+		</div>
+		<div class="row">
+			My rating: 
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+		</div>
+		<div class="row">
+			<p><%= @review.content.html_safe %></p>
+		</div>
+	</div>
+</section>

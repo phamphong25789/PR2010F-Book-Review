@@ -1,0 +1,10 @@
+
+<%= javascript_include_tag Ckeditor.cdn_url %>
+<%= form_for(@review) do |f| %>
+
+<%= f.hidden_field :book_id, :value => @book.id %>
+
+<div class=”field“><%=f.label :Content %><br><%= f.cktext_area :content, class: "areaL ckeditor" %></div>
+<%= f.submit "Create my review", class: "btn btn-primary" %>
+
+<% end %>

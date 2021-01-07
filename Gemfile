@@ -12,6 +12,13 @@ gem 'bcrypt'
 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'simple_form'
+
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'ckeditor'
+
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
@@ -61,6 +68,7 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mysql2'
