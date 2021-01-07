@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_01_06_084558) do
 
-  create_table "authors", force: :cascade do |t|
+  create_table "authors", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "books", force: :cascade do |t|
+  create_table "books", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.integer "author_id"
     t.integer "category_id"
@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 2021_01_06_084558) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", charset: "utf8", force: :cascade do |t|
     t.integer "review_id"
     t.integer "user_id"
     t.text "content"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_084558) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
+  create_table "favorites", charset: "utf8", force: :cascade do |t|
     t.integer "book_id"
     t.string "author_id"
     t.string "integer"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_084558) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "likes", force: :cascade do |t|
+  create_table "likes", charset: "utf8", force: :cascade do |t|
     t.integer "comment_id"
     t.integer "review_id"
     t.integer "user_id"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_084558) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "rates", force: :cascade do |t|
+  create_table "rates", charset: "utf8", force: :cascade do |t|
     t.integer "book_id"
     t.integer "user_ip"
     t.integer "star"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_084558) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "reviews", charset: "utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "book_id"
     t.text "content"
@@ -75,12 +75,14 @@ ActiveRecord::Schema.define(version: 2021_01_06_084558) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.integer "role_admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

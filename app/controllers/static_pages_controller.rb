@@ -1,9 +1,15 @@
 class StaticPagesController < ApplicationController
-  def home
-    @admin = false;
-  end
 
-  def about
-  end
+	def index
+	end
+
+	def help
+	end
+
+	def about
+	end
+
+	def contact
+	end
 
 end
