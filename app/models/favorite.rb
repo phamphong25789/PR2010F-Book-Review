@@ -1,5 +1,5 @@
 class Favorite < ApplicationRecord
-  has_many :books
-  has_many :authors
+  belong_to :book
+  belong_to :author
   belongs_to :user
 end

@@ -1,0 +1,27 @@
+<section class="show-book">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-6">
+				<img class="block-image" src="https://upload.wikimedia.org/wikipedia/en/b/bd/Doraemon_character.png">
+			</div>
+			<div class="col-sm-6">
+				<h1><%= @book.name %></h1>
+				<div class="col-sm-12">
+					<span>by &nbsp</span><span><%= @book.author.name %></span>
+				</div>
+				<div class="col-sm-12">
+					<span>
+						<i class="far fa-star"></i>
+						<i class="far fa-star"></i>
+						<i class="far fa-star"></i>
+						<i class="far fa-star"></i>
+						<i class="far fa-star"></i>
+					</span>
+				</div>
+				<div class="col-sm-12">
+					<%= @book.description %>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
