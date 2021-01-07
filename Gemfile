@@ -35,33 +35,44 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'rails'
+gem 'image_processing'
+gem 'mini_magick'
+gem 'aws-sdk-s3'
+gem 'active_storage_validations'
+gem 'bcrypt'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'puma'
+gem 'sass-rails'
+gem 'webpacker'
+gem 'turbolinks'
+gem 'jbuilder'
+gem 'bootsnap'
+gem 'bootstrap-sass'
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
-
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.1.0'
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
-  gem 'listen', '~> 3.3'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+gem 'web-console'
+gem 'listen'
+gem 'spring'
+gem 'spring-watcher-listen'
 end
-
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+gem 'capybara'
+gem 'selenium-webdriver'
+gem 'webdrivers'
+gem 'rails-controller-testing'
+gem 'minitest'
+gem 'minitest-reporters'
+gem 'guard'
+gem 'guard-minitest'
 end
-
+group :production do
+gem 'pg'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'mysql2'
-gem 'sqlite3'
+gem 'pry-rails'
