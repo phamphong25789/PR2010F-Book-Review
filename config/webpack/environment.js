@@ -6,6 +6,9 @@ environment.plugins.prepend('Provide',
     $: 'jquery/src/jquery',
     jQuery: 'jquery/src/jquery'
   })
-  )
 
+)
+environment.loaders.get('sass').use.splice(-1, 0, {
+  loader: 'resolve-url-loader'
+});
 module.exports = environment

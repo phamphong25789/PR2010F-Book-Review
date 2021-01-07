@@ -6,10 +6,8 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-import 'bootstrap';
-import '../stylesheets/application'; // This file will contain your custom CSS
-import "@fortawesome/fontawesome-free/js/all";
+import "channels" // This file will contain your custom CSS
+
 
 require('admin-lte');
 require('packs/rating.js');
@@ -19,7 +17,17 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+
+require("jquery");
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
 });
+
+require('admin-lte');
+import 'bootstrap';
+import "@fortawesome/fontawesome-free/js/all";
+import '../stylesheets/application';
+
+
+//= require ckeditor/init
 
