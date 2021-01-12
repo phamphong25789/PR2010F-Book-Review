@@ -1,0 +1,11 @@
+<div class="well">
+  <p class="text-muted">
+    <strong><%= comment.user.name %></strong> &nbsp;&nbsp;&nbsp;on
+    <%= l(comment.created_at, locale: :en) %></p>
+
+  <blockquote>
+    <p><%= comment.content %></p>
+  </blockquote>
+
+    <p class="reply"><%= link_to 'reply', new_comment_path(comment.id) %></p>
+</div>
