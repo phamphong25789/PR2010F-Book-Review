@@ -273,9 +273,43 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  aws-unknown
+  bootstrap-unknown
+  bootstrap-unknown
+  guard-unknown
+  minitest-unknown
+  pry-unknown
+  rails-unknown
   ruby
+  sass-unknown
+  selenium-unknown
+  spring-unknown
+  tzinfo-unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  unknown
+  web-unknown
   x86_64-linux
 
+DEPENDENCIES
   active_storage_validations
   aws-sdk-s3
   bcrypt
@@ -290,5 +324,7 @@ PLATFORMS
 
 RUBY VERSION
    ruby 2.7.2p137
+
+
 BUNDLED WITH
    2.1.4
