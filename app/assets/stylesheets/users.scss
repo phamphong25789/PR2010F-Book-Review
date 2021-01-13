@@ -1,3 +1,43 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.section-register{
+	min-height: 1000px;
+	background: #FEC09B;
+}
+
+.form-background{
+	background: #E9AB9C;
+	margin-top: 100px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.form-background > h3{
+	text-align: center;
+	margin-top: 30px;
+}
+
+.form-item{
+	margin-bottom: 15px;
+}
+
+.avatar-upload{
+	margin-top: 10px;
+}
+
+.btn-login{
+	padding: 12px 38px;
+	font-size: 18px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background: #F0BCD4;
+	color: white;
+	border: none;
+	outline: none;
+	display: table;
+	cursor: pointer;
+	margin: 15px auto 31px;
+}

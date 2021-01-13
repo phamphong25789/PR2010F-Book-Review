@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-
 	def index
 	end
 
@@ -11,5 +10,4 @@ class StaticPagesController < ApplicationController
 
 	def contact
 	end
-
 end
