@@ -1,0 +1,10 @@
+<h1>Admin::Reviews#index</h1>
+<%= form_tag admin_reviews_path, method: :get do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search' %>
+<% end %>
+<% if @reviews.any? %>
+  <%= @reviews.each do |review| %>
+    <%= review.content %>
+  <% end %>
+<% end %>
