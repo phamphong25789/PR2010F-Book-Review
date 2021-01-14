@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 	before_action :logged_in_user, only: [:index, :edit, :update, :destroy]	
 	before_action :find_user, only: [:show, :edit, :update, :destroy]	
 	before_action :correct_user, only: [:edit, :update]	
-
 	def index	
 		@users = User.paginate(page: params[:page])	
 	end	
@@ -15,7 +14,7 @@ class UsersController < ApplicationController
 		@user = User.new user_params	
 		if @user.save	
 			log_in @user	
-			flash[:success] = "Welcome to the Sample App!"	
+			flash[:success] = "Welcome to the REVIEW BOOK!"	
 			redirect_to @user	
 		else	
 			render :new	
@@ -50,12 +49,20 @@ class UsersController < ApplicationController
 		end	
 	end	
 
-	def correct_user	
-		redirect_to root_url unless @user.current_user? current_user	
-	end	
+
 
 	def admin_user	
 		redirect_to root_url unless current_user.admin?	
 	end	
+	def logged_in_user
+unless logged_in?
+flash[:danger] = "Please log in."
+redirect_to login_url
+end
+end
+def correct_user
+@user = User.find(params[:id])
+redirect_to(root_url) unless current_user?(@user)
+end
 
 end 
