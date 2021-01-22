@@ -2,6 +2,7 @@ class User < ApplicationRecord
 	has_many :reviews
 	has_many :comments
 	has_many :favorites
+	has_many :rates
 
 	before_save :downcase_email
 	validates :name, presence: true, length: { maximum: 50 }
@@ -13,6 +14,6 @@ class User < ApplicationRecord
 
 	private
 	def downcase_email
-		self.email = email.downcase! 
+		self.email = email.downcase!
 	end
 end
