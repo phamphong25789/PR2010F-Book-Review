@@ -2,6 +2,7 @@ class Review < ApplicationRecord
   belongs_to :book
   belongs_to :user
   has_many :comments
+
   scope :review_by, ->field_name, value {where("? LIKE ?", field_name, value)}
 
   class << self
@@ -14,3 +15,4 @@ class Review < ApplicationRecord
     end
   end
 end
+

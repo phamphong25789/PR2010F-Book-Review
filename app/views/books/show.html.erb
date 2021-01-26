@@ -2,7 +2,9 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-6">
-				<img class="block-image" src="https://upload.wikimedia.org/wikipedia/en/b/bd/Doraemon_character.png">
+
+				<img style="width: 150px" src="https://upload.wikimedia.org/wikipedia/en/b/bd/Doraemon_character.png">
+
 			</div>
 			<div class="col-sm-6">
 				<h1><%= @book.name %></h1>
@@ -24,5 +26,13 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				Doraemon, a cat shaped robot which came from the 22nd century in the future, goes back in time in order to help Nobita, a below average lazy kid, to make his life less miserable and improve his descendent's life. With many of Doreamon's gadgets from the future, Nobita's life will never be as the same.
+
+				This title is a classic manga/anime that dates back to 1973/08 and is still a child's favorite even today.
+			</div>
+		</div>
 	</div>
 </section>
+<%= link_to "Review", new_review_path(book_id: @book.id ), class:"btn btn-primary" %>
