@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
+    resources :reviews
     get 'static_pages/home'
     get 'static_pages/help'
   end

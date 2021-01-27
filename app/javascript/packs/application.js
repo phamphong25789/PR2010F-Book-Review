@@ -13,16 +13,13 @@ import "@fortawesome/fontawesome-free/js/all";
 
 require('admin-lte');
 require('packs/rating.js');
-
-document.addEventListener("turbolinks:load", () => {
-  $('[data-toggle="tooltip"]').tooltip()
-});
-
+//= require ckeditor/init
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-//= require ckeditor/init
-
+document.addEventListener("turbolinks:load", () => {
+  $('[data-toggle="tooltip"]').tooltip()
+});
 

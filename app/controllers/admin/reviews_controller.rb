@@ -1,9 +1,12 @@
 class Admin::ReviewsController < ApplicationController
   def index
-    if params[:term]
-      @reviews = Review.search(params[:term])
-    else
-      @reviews = Review.all
+    @reviews = Review.all
+    if(params[:data].present?)
+      @reviews = Review.search_word(params[:data]).take(5)
+      render json: [@reviews.pluck(:content), @reviews.pluck(:id)]
+    elsif params[:term]
+      # @reviews = Review.search(params[:term])
+      redirect_to root_path
     end
   end
 

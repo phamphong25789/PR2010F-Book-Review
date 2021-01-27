@@ -1,10 +1,13 @@
 <h1>Admin::Reviews#index</h1>
-<%= form_tag admin_reviews_path, method: :get do %>
-  <%= text_field_tag :term, params[:term] %>
-  <%= submit_tag 'Search' %>
+<%= form_tag admin_reviews_path, autocomplete: "off", method: :get do %>
+<div class="autocomplete" >
+  <%= text_field_tag :term, params[:term], id: "myInput" %>
+</div>
+<%= submit_tag 'Search' %>
 <% end %>
 <% if @reviews.any? %>
-  <%= @reviews.each do |review| %>
-    <%= review.content %>
-  <% end %>
+<% @reviews.each do |review| %>
+<%= review.content %><br>
 <% end %>
+<% end %>
+<%= javascript_pack_tag 'autocomplete'%>
