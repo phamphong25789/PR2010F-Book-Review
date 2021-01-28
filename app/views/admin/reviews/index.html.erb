@@ -1,4 +1,7 @@
 <h1>Admin::Reviews#index</h1>
+<% flash.each do |message_type, message| %>
+<div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
 <%= form_tag admin_reviews_path, autocomplete: "off", method: :get do %>
 <div class="autocomplete" >
   <%= text_field_tag :term, params[:term], id: "myInput" %>
