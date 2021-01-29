@@ -1,4 +1,6 @@
 class Admin::ReviewsController < ApplicationController
+  before_action :find_review, only: [:show, :edit, :update, :destroy]
+
   def index
     @reviews = Review.all
     if(params[:data].present?)
@@ -10,9 +12,20 @@ class Admin::ReviewsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
     def review_params
       params.require(:review).permit(:term)
     end
+
+    def find_review
+    @review =  Review.find_by id: params[:id]
+    unless @review.present?
+      flash[:danger] = "Review doesn't exist"
+      redirect_to admin_reviews_path
+    end
+  end
 end

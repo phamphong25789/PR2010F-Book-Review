@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Admin::Reviews#show</h1>
+  <form>
+    <div class="row">
+      <div class="col-sm">
+        <a href="#">Review ID <%= @review.id %></a>
+      </div>
+      <div class="col-sm">
+        <a href="#">User ID <%= @review.id %></a>
+      </div>
+      <div class="col-sm">
+        <a href="#">Book ID <%= @review.id %></a>
+      </div>
+    </div>
+    <div class="row">
+      <label for="reviewContent">Content</label>
+      <textarea class="form-control" id="reviewContent" rows="3" readonly><%= @review.content %></textarea>
+    </div>
+    <div class="row mt-2">
+      <div class="col-sm">
+        <a class="btn btn-primary" href="<%= edit_admin_review_path%>" role="button">Edit</a>
+      </div>
+    </div>
+  </form>
+</div>
