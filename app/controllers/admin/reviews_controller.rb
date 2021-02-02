@@ -1,5 +1,7 @@
 class Admin::ReviewsController < ApplicationController
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :find_review, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user
 
   def index
     @reviews = Review.all
@@ -26,6 +28,10 @@ class Admin::ReviewsController < ApplicationController
     unless @review.present?
       flash[:danger] = "Review doesn't exist"
       redirect_to admin_reviews_path
+    end
+
+    def admin_user
+      redirect_to root_url unless current_user.role_admin?
     end
   end
 end

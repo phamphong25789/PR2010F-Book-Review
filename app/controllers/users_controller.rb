@@ -38,24 +38,26 @@ class UsersController < ApplicationController
 	end
 
 	private
-	def user_params
-		params.require(:user).permit :name, :email, :password,:password_confirmation
-	end
-
-	def find_user
-		@user =  User.find_by id: params[:id]
-		unless @user.present?
-			flash[:success] = "User doesn't exist"
-			redirect_to users_url
+		def user_params
+			params.require(:user).permit :name, :email, :password,:password_confirmation
 		end
-	end
 
-	def correct_user
-		redirect_to root_url unless @user.current_user? current_user
-	end
+		def find_user
+			@user =  User.find_by id: params[:id]
+			unless @user.present?
+				flash[:success] = "User doesn't exist"
+				redirect_to users_url
+			end
+		end
 
-	def admin_user
-		redirect_to root_url unless current_user.admin?
-	end
+		# Confirms the correct user.
+		def correct_user
+			redirect_to root_url unless @user.current_user? current_user
+		end
+
+		#Confirms an admin user
+		def admin_user
+			redirect_to root_url unless current_user.role_admin?
+		end
 
 end
