@@ -40,9 +40,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_032533) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-
   create_table "authors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
@@ -50,7 +48,6 @@ ActiveRecord::Schema.define(version: 2021_01_20_032533) do
   end
 
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.string "name"
     t.integer "author_id"
     t.integer "category_id"
@@ -60,15 +57,12 @@ ActiveRecord::Schema.define(version: 2021_01_20_032533) do
   end
 
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "ckeditor_assets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -78,9 +72,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_032533) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-
   create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.integer "review_id"
     t.integer "user_id"
     t.text "content"
@@ -88,9 +80,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_032533) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.integer "book_id"
     t.string "author_id"
     t.string "integer"
@@ -99,9 +89,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_032533) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.integer "comment_id"
     t.integer "review_id"
     t.integer "user_id"
@@ -109,9 +97,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_032533) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "rates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.integer "book_id"
     t.integer "user_id"
     t.integer "star"
@@ -119,9 +105,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_032533) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.integer "user_id"
     t.integer "book_id"
     t.text "content"
@@ -129,9 +113,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_032533) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
     t.string "name"
     t.string "email"
     t.integer "role_admin"

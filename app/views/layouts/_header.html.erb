@@ -1,26 +1,26 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
+    <!-- Brand/logo -->
+    <%= link_to "AmazingGoodReads", root_path, id: "logo", class: "navbar-brand" %>
     <nav>
+      <!-- Links -->
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-          <% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Account <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li><%= link_to "Profile", current_user %></li>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-          <li class="divider"></li>
-          <li>
-            <%= link_to "Log out", logout_path, method: :delete %>
-          </li>
-          </ul>
-          </li>
+        <li class="nav-item"><%= link_to "Home", root_path, class:"nav-link" %></li>
+        <% if logged_in? %>
+        <li class="nav-item"><%= link_to "Users", '#', class:"nav-link" %></li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+            Account
+          </a>
+          <div class="dropdown-menu">
+            <%= link_to "Profile", current_user, class: "dropdown-item" %>
+            <%= link_to "Settings", edit_user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+        <li class="nav-item"><%= link_to "Log in", login_path, class:"nav-link" %></li>
         <% end %>
       </ul>
     </nav>

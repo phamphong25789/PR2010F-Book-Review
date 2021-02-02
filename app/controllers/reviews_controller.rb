@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
-	include SessionsHelper
-
+	before_action :logged_in_user, only: [:create, :destroy]
 	before_action :find_review, only: [:show, :edit, :update, :destroy]
 	before_action :find_book, only: [:new]
 
@@ -14,10 +13,10 @@ class ReviewsController < ApplicationController
 	def create
 		@review = current_user.reviews.new(review_params)
 		if @review.save!
-			flash[:success]="Product created!"
+			flash[:success]="Review created!"
 			redirect_to review_path(@review)
 		else
-			flash[:danger]="Creating production fail!"
+			flash[:danger]="Creating review fail!"
 			redirect_to new_review_path
 		end
 	end
