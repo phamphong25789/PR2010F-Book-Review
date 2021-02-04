@@ -1,0 +1,16 @@
+<h1>Admin::Authors#show</h1>
+<div class="form-group">
+	<span>ID: </span><%= @author.id %>
+</div>
+<div class="form-group">
+	<span>Author name: </span><%= @author.name %>
+</div>
+<div class="form-group">
+	<span>Description: </span><%= @author.description %>
+</div>
+<div class="row">
+	<div class="col">
+		<%= link_to "Edit", edit_admin_author_path(@author.id), class: "btn btn-primary" %>
+		<%= link_to "Delete", [:admin ,@author], method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
+	</div>
+</div>
