@@ -1,0 +1,14 @@
+<h1>Admin::Categories#edit</h1>
+<%= form_for [:admin, @category] do |category|%>
+	<div class="form-group">
+		<%= category.label :id %>
+		<%= category.text_field :id, class: "form-control", disabled: "disabled"%>
+	</div>
+	<div class="form-group">
+		<%= category.label :name %>
+		<%= category.text_field :name, class: "form-control"%>
+	</div>
+	<%= category.button "Edit", class: "btn btn-primary" %>
+	<%= link_to "Cancel", admin_category_path, class: "btn btn-secondary" %>
+	<%= link_to "Delete", [:admin ,@category], method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
+<% end %>

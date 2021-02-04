@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :reviews
     resources :authors
+    resources :categories
     get 'static_pages/home'
     get 'static_pages/help'
   end
