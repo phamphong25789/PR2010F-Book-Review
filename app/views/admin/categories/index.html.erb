@@ -1,0 +1,55 @@
+<div class="container">
+	<h1>Admin::Categories#index</h1>
+	<table class="table">
+	    <thead class="thead-light">
+	      <tr>
+	        <th>ID</th>
+	        <th>Category</th>
+	        <th><a href="<%= new_admin_category_path %>" type="button" class="btn btn-primary">New <i class="fa fa-plus"></i></a></th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    	<% if @categories.any? %>
+	    		<% @categories.each do |category| %>
+			      <tr>
+			        <td><%= category.id %></td>
+			        <td><%= category.name %></td>
+			        <td>
+			        	<a href="<%= admin_category_path(category.id) %>" type="button" class="btn btn-info"><i class="fa fa-info-circle"></i></a>
+			        	<a href="<%= edit_admin_category_path(category.id) %>" type="button" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+			        	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<%=category.id%>">
+			        		<i class="fa fa-trash"></i>
+			        	</button>
+			        	<!-- The Modal -->
+					  	<div class="modal" id="deleteModal<%=category.id%>">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						      
+						        <!-- Modal Header -->
+						        <div class="modal-header">
+						          <h4 class="modal-title">Delete Confirmation</h4>
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						        </div>
+						        
+						        <!-- Modal body -->
+						        <div class="modal-body">
+						          You sure delete category with id: <%= category.id %>
+						        </div>
+						        
+						        <!-- Modal footer -->
+						        <div class="modal-footer">
+						        	<%= link_to "Delete", admin_category_path(category.id), method: :delete, class: "btn btn-danger" %>
+						          	<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+						        </div>
+						        
+						      </div>
+						    </div>
+					  	</div>
+			        </td>
+			      </tr>
+			    <% end %>
+		    <% end %>  
+	    </tbody>
+	</table>
+
+</div>
