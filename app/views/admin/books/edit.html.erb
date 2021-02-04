@@ -1,0 +1,24 @@
+<h1>Admin::Books#edit</h1>
+<%= form_for [:admin, @book] do |book|%>
+	<div class="form-group">
+		<%= book.label :id %>
+		<%= book.text_field :id, class: "form-control", disabled: "disabled"%>
+	</div>
+	<div class="form-group">
+		<%= book.label :name %>
+		<%= book.text_field :name, class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= collection_select(:book, :category_id, Category.all, :id, :name, {}, {:class => "form-control"})%>
+	</div>
+	<div class="form-group">
+		<%= collection_select(:book, :author_id, Author.all, :id, :name, {}, {:class => "form-control"})%>
+	</div>
+	<div class="form-group">
+		<%= book.label :description %>
+		<%= book.text_area :description, class: "form-control"%>
+	</div>
+	<%= book.button "Edit", class: "btn btn-primary" %>
+	<%= link_to "Cancel", admin_book_path, class: "btn btn-secondary" %>
+	<%= link_to "Delete", [:admin ,@book], method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
+<% end %>

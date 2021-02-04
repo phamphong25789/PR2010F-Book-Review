@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :reviews
     resources :authors
     resources :categories
+    resources :books
     get 'static_pages/home'
     get 'static_pages/help'
   end
