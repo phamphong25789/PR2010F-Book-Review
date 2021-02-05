@@ -1,0 +1,23 @@
+<h1>Admin::Books#show</h1>
+<div class="form-group">
+	<span>ID: </span><%= @book.id %>
+</div>
+<div class="form-group">
+	<span>Book name: </span><%= @book.name %>
+</div>
+<div class="form-group">
+	<span>Category: </span><%= Category.find(@book.category_id).name %>
+</div>
+<div class="form-group">
+	<span>Author: </span><%= Author.find(@book.author_id).name %>
+</div>
+<div class="form-group">
+	<span>Description: </span><%= @book.description %>
+</div>
+<div class="row">
+	<div class="col">
+		<%= link_to "Books", admin_books_path, class: "btn btn-secondary" %>
+		<%= link_to "Edit", edit_admin_book_path(@book.id), class: "btn btn-primary" %>
+		<%= link_to "Delete", [:admin ,@book], method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
+	</div>
+</div>
