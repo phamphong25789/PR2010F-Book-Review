@@ -5,7 +5,7 @@ $(document).ready(function(){
   });
 });
 
-$(document).on("click", ".ratingW li a", function(){
+$(document).on("click", ".ratingW li a", function(){  
     var stars = $('.ratingW').find('li')
     stars.removeClass('on');
     var thisIndex = $(this).parents('li').index();
@@ -34,3 +34,4 @@ $(document).on("click", ".ratingW li a", function(){
     });
 
   });
+

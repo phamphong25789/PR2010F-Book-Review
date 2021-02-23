@@ -1,9 +1,11 @@
 class ReviewsController < ApplicationController
-	before_action :logged_in_user, only: [:create, :destroy]
+	include SessionsHelper
+	before_action :logged_in_user	, only: [:create, :destroy]
 	before_action :find_review, only: [:show, :edit, :update, :destroy]
 	before_action :find_book, only: [:new]
 
 	def show
+		@comments = @review.comments.orderByDesc
 	end
 
 	def new
@@ -41,7 +43,5 @@ class ReviewsController < ApplicationController
 			redirect_to root_path
 		end
 	end
-
-	
 
 end
