@@ -21,6 +21,7 @@ class Admin::BooksController < ApplicationController
 
   def create
     @book = Book.new book_params
+    @book.image.attach(params[:book][:image])
     if @book.save
       flash[:success]="Book created!"
       redirect_to admin_book_path(@book)
@@ -55,7 +56,7 @@ class Admin::BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit :name, :author_id, :category_id, :description
+      params.require(:book).permit :name, :author_id, :category_id, :description, :image
     end
 
     def admin_user
