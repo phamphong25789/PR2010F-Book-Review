@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
       log_in user
-      redirect_to user
+      render json: user
     else
       flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+      render json: flash.now[:danger] 
     end
   end
   def destroy
