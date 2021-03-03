@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
 	root 'static_pages#home'
 	get '/help', to: 'static_pages#help'
 	get '/about', to: 'static_pages#about'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   namespace :admin do
+    root 'static_pages#home'
     resources :reviews
     resources :authors
     resources :categories
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
     get 'static_pages/home'
     get 'static_pages/help'
   end
-  
+
   resources :reviews
 
   get '/login', to: 'sessions#new'

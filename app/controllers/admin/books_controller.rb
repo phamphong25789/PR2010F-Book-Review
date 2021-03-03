@@ -8,15 +8,16 @@ class Admin::BooksController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
     @book = Book.new
+    @categories = Category.all
   end
 
   def edit
-    
+
   end
 
   def create
@@ -43,7 +44,7 @@ class Admin::BooksController < ApplicationController
   def destroy
     @book.destroy
     flash[:success] = "Book deleted"
-    redirect_to 
+    redirect_to
   end
 
   private

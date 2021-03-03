@@ -1,5 +1,5 @@
-<h1>Admin::Authors#edit</h1>
-<%= form_for [:admin, @author] do |author|%>
+<h1>Edit Author</h1>
+<%= form_for [:admin, @author], html: {class: "container-sm"} do |author|%>
 	<div class="form-group">
 		<%= author.label :id %>
 		<%= author.text_field :id, class: "form-control", disabled: "disabled"%>
@@ -13,6 +13,5 @@
 		<%= author.text_area :description, class: "form-control"%>
 	</div>
 	<%= author.button "Edit", class: "btn btn-primary" %>
-	<%= link_to "Cancel", admin_author_path, class: "btn btn-secondary" %>
 	<%= link_to "Delete", [:admin ,@author], method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
 <% end %>
