@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="row">
-			My rating: 
+			My rating:
 			<i class="fas fa-star"></i>
 			<i class="fas fa-star"></i>
 			<i class="fas fa-star"></i>
@@ -26,3 +26,22 @@
 		</div>
 	</div>
 </section>
+
+<button id="btn_comment" class="btn btn-primary">Comment</button>
+
+<div style="display: none" id="div01" class="field">
+	<input hidden="" type="number" value="<%=@review.id%>" id="review_id">
+	<textarea class="form-control" cols="15" rows="5" id="content"></textarea>
+	<button id="cmt_submit" class="btn btn-primary">Submit comment</button>	
+</div>
+<div id="CommentContainer"></div><hr>
+
+
+
+<div>
+	<%= render @comments %>
+	<!-- giống như việc "comments/comment",
+	nếu chỉ 
+-->
+</div>
+

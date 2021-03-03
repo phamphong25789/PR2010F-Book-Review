@@ -13,7 +13,9 @@ import '../stylesheets/application';
 
 
 require('admin-lte');
+require('packs/comment.js');
 require('packs/rating.js');
+
 //= require ckeditor/init
 require("jquery");
 document.addEventListener("turbolinks:load", () => {
@@ -23,5 +25,3 @@ document.addEventListener("turbolinks:load", () => {
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-
