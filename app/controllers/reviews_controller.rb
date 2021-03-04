@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
 			redirect_to new_review_path
 		end
 	end
-
+	
 	private
 	def review_params
 		params.require(:review).permit(:user_id, :book_id, :content, :image)

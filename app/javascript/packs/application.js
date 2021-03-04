@@ -19,9 +19,6 @@ require('packs/states.js');
 
 //= require ckeditor/init
 require("jquery");
-// document.addEventListener("turbolinks:load", () => {
-//   $('[data-toggle="tooltip"]').tooltip()
-// });
 
 Rails.start()
 Turbolinks.start()

@@ -17,16 +17,39 @@ class Admin::ReviewsController < ApplicationController
   def show
   end
 
+  def new
+    @review = Review.new
+  end
+
+  def edit
+  end
+
+  def update
+    if @review.update review_params
+      flash[:success] = "Review updated"
+      redirect_to admin_review_path(@review)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @review.destroy
+    flash[:success] = "Review deleted"
+    redirect_to
+  end
+
   private
 
-    def review_params
-      params.require(:review).permit(:term)
-    end
+  def review_params
+    params.require(:review).permit(:content)
+  end
 
-    def find_review
+
+  def find_review
     @review =  Review.find_by id: params[:id]
     unless @review.present?
-      flash[:danger] = "Review doesn't exist"
+      flash[:danger] = "Da xoa Review"
       redirect_to admin_reviews_path
     end
 

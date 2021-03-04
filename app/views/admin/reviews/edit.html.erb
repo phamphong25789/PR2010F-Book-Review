@@ -1,0 +1,12 @@
+<h1>Admin::Reviews#edit</h1>
+<%= form_for [:admin, @review] do |review|%>
+
+  <div class="form-group">
+    <%= review.label :content %>
+    <%= review.text_field :content, class: "form-control"%>
+  </div>
+
+  <%= review.button "Edit", class: "btn btn-primary" %>
+  <%= link_to "Cancel", admin_review_path, class: "btn btn-secondary" %>
+  <%= link_to "Delete", [:admin ,@review], method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
+<% end %>
