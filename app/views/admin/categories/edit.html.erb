@@ -9,6 +9,5 @@
 		<%= category.text_field :name, class: "form-control"%>
 	</div>
 	<%= category.button "Edit", class: "btn btn-primary" %>
-	<%= link_to "Cancel", admin_category_path, class: "btn btn-secondary" %>
 	<%= link_to "Delete", [:admin ,@category], method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
 <% end %>
