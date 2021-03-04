@@ -1,30 +1,45 @@
-<h1>Admin::Books#show</h1>
-<div class="form-group">
-	<span>ID: </span><%= @book.id %>
-</div>
-<div class="form-group">
-	<div class="row">
-		<div class="col">
-			<span>Book name: </span><%= @book.name %>
+<h1>Book Info</h1>
+<div class="container-sm">
+	<div class="row bookCover">
+		<div class="col-4">
+			<div class="row">
+				<div class="col text-center">
+					<%= image_tag @book.image if @book.image.attached? %>
+				</div>
+			</div>
+			<div class="row pt-3 center">
+				<div class="col justify-content-center">
+					<%= link_to "Books", admin_books_path, class: "btn btn-secondary" %>
+					<%= link_to "Edit", edit_admin_book_path(@book.id), class: "btn btn-primary" %>
+					<%= link_to "Delete", [:admin ,@book], method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
+				</div>
+			</div>
 		</div>
-		<div class="col">
-			<%= image_tag @book.image if @book.image.attached? %>
+		<div class="col-8 justify-content-center bookMeta">
+			<table class="table table-striped">
+				<tbody>
+					<tr>
+						<th scope="row">Book ID</th>
+						<td><%= @book.id %></td>
+					</tr>
+					<tr>
+						<th scope="row">Book name</th>
+						<td><%= @book.name %></td>
+					</tr>
+					<tr>
+						<th scope="row">Category</th>
+						<td><%= Category.find(@book.category_id).name %></td>
+					</tr>
+					<tr>
+						<th scope="row">Author</th>
+						<td><%= Author.find(@book.author_id).name %></td>
+					</tr>
+					<tr>
+						<th scope="row">Description</th>
+						<td><%= @book.description %></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-	</div>
-</div>
-<div class="form-group">
-	<span>Category: </span><%= Category.find(@book.category_id).name %>
-</div>
-<div class="form-group">
-	<span>Author: </span><%= Author.find(@book.author_id).name %>
-</div>
-<div class="form-group">
-	<span>Description: </span><%= @book.description %>
-</div>
-<div class="row">
-	<div class="col">
-		<%= link_to "Books", admin_books_path, class: "btn btn-secondary" %>
-		<%= link_to "Edit", edit_admin_book_path(@book.id), class: "btn btn-primary" %>
-		<%= link_to "Delete", [:admin ,@book], method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
 	</div>
 </div>

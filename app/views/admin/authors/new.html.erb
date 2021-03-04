@@ -1,5 +1,5 @@
-<h1>Admin::Authors#new</h1>
-<%= form_for [:admin, @author] do |author| %>
+<h1>New Author</h1>
+<%= form_for [:admin, @author], html: {class: "container-sm"} do |author| %>
 	<div class="form-group">
 		<%= author.text_field :name, placeholder: "Enter author name", class: "form-control", id: "name" %>
 	</div>

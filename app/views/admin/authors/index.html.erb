@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>Admin::Authors#index</h1>
+	<h1>Author Manager</h1>
 	<table class="table">
 	    <thead class="thead-light">
 	      <tr>
@@ -17,7 +17,6 @@
 			        <td><%= author.name %></td>
 			        <td><%= author.description %></td>
 			        <td>
-			        	<a href="<%= admin_author_path(author.id) %>" type="button" class="btn btn-info"><i class="fa fa-info-circle"></i></a>
 			        	<a href="<%= edit_admin_author_path(author.id) %>" type="button" class="btn btn-primary"><i class="fa fa-edit"></i></a>
 			        	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<%=author.id%>">
 			        		<i class="fa fa-trash"></i>
@@ -26,31 +25,31 @@
 					  	<div class="modal" id="deleteModal<%=author.id%>">
 						    <div class="modal-dialog">
 						      <div class="modal-content">
-						      
+
 						        <!-- Modal Header -->
 						        <div class="modal-header">
 						          <h4 class="modal-title">Delete Confirmation</h4>
 						          <button type="button" class="close" data-dismiss="modal">&times;</button>
 						        </div>
-						        
+
 						        <!-- Modal body -->
 						        <div class="modal-body">
 						          You sure delete author with id: <%= author.id %>
 						        </div>
-						        
+
 						        <!-- Modal footer -->
 						        <div class="modal-footer">
 						        	<%= link_to "Delete", admin_author_path(author.id), method: :delete, class: "btn btn-danger" %>
 						          	<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
 						        </div>
-						        
+
 						      </div>
 						    </div>
 					  	</div>
 			        </td>
 			      </tr>
 			    <% end %>
-		    <% end %>  
+		    <% end %>
 	    </tbody>
 	</table>
 
