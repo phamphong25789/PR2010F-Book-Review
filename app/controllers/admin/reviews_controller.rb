@@ -52,9 +52,9 @@ class Admin::ReviewsController < ApplicationController
       flash[:danger] = "Da xoa Review"
       redirect_to admin_reviews_path
     end
-
-    def admin_user
-      redirect_to root_url unless current_user.role_admin?
-    end
+  end
+  
+  def admin_user
+    redirect_to root_url unless current_user.role_admin?
   end
 end
