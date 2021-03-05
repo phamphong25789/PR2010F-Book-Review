@@ -1,0 +1,36 @@
+<tr>
+  <td><a href="<%=book_path(favorite.book_id)%>"><%= image_tag favorite.book_display_image(63, 120) if favorite.book_image.attached? %></a></td>
+  <td><%= link_to favorite.book_name, book_path(favorite.book_id) %></td>
+  <td><%= favorite.book_author_name %></td>
+  <td><%= favorite.book_category_name %></td>
+  <td><%= favorite.created_at.to_date %></td>
+  <td>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<%=favorite.id%>">
+      <i class="fa fa-times"></i>
+    </button>
+    <!-- The Modal -->
+  <div class="modal" id="deleteModal<%=favorite.id%>">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Confirmation</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          You sure delete book: <%= favorite.id %>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <%= link_to "Delete", favorite_path(favorite.id), method: :delete, class: "btn btn-danger" %>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </td>
+</tr>

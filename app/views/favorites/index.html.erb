@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>My Book</h1>
+  <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>Cover</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>Date Added</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @favorite.any? %>
+            <%= render @favorite %>
+        <% end %>
+      </tbody>
+  </table>
+</div>
