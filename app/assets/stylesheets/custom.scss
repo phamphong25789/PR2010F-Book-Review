@@ -235,8 +235,8 @@ input {
 }
 #remember-me-text{
 	margin-left: 20px;
-}
 
+}
 
 
 /*the container must be positioned relative:*/
@@ -291,4 +291,8 @@ input {
 .autocomplete-active {
   background-color: DodgerBlue !important;
   color: #ffffff;
+}
+
+#content{
+	display: none;
 }

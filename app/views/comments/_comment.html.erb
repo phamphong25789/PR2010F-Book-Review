@@ -1,4 +1,25 @@
 Content: <%= comment.content %><br>
-User: <%= comment.user.name %><br>
-Posted: <%= time_ago_in_words(comment.created_at) %> ago.<br>	
+
+User: <%= comment.user_name %><br>
+
+Posted: <%= time_ago_in_words(comment.created_at) %> ago.<hr>
+
+<!-- This code render subcomment content start -->
+<% comment.subcomments.each do |subcomment| %>
+	<%= subcomment.content %><br>
+	<%= subcomment.user_name %><br>
+	<%= time_ago_in_words(subcomment.created_at) %> ago.<br><hr>
+	<%= @review.comments.last.user_name %>
+<% end %>
+<!-- This code render subcomment content end -->
+
+<div class="container">
+	<div></div>
+	<input id="user_id" class="d-none" type="number" value="<%= current_user.id %>">
+	<textarea id="content" cols="10" rows="2" class="form-control"></textarea>
+	<input class="targetable_type d-none" type="text" value="Comment">
+	<input class="targetable_id d-none" type="text" value="<%= comment.id %>">
+	<button id="<%= comment.id %>" class="btn btn-primary reply_cmt">Reply</button>
+	<button style="display: none" class="btn btn-primary">Submit</button>
+</div>
 <hr>
