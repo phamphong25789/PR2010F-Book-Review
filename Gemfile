@@ -16,7 +16,7 @@ gem 'mysql2'
 gem 'bcrypt'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-
+gem 'rails-i18n'
 gem 'simple_form'
 
 gem 'carrierwave'
