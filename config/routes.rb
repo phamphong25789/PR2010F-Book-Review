@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login',to: 'sessions#create'
   delete '/logout',to: 'sessions#destroy'
+  get '/book/category/:category', to: 'books#index'
   resources :favorites, only: [:index, :destroy]
 	resources :users
 	resources :books, only: [:show, :index] do

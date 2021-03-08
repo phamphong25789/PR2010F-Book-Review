@@ -1,12 +1,21 @@
 <% provide(:title, 'All books') %>
 <h1>All books</h1>
+<div>
+  <% if @categories.any? %>
+    <% @categories.each do |category| %>
+      <%= link_to category.name, "/book/category/#{category.id}", role: "button", class: "btn btn-sm btn-primary" %>
+    <% end %>
+  <% end %>
+</div>
+<div class="container">
+  <div class="d-flex flex-wrap">
+    <% if @books.any? %>
+      <% @books.each do |book| %>
+        <%= render book %>
+      <% end %>
+    <% else %>
+      <p>Category does not exist</p>
+    <% end %>
+  </div>
+</div>
 
-<%= will_paginate %>
-
-<ul class="books">
-	<% @books.each do |book| %>
-	<%= render book %>
-	<% end %>
-</ul>
-
-<%= will_paginate %>

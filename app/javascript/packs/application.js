@@ -16,6 +16,7 @@ require('admin-lte');
 require('packs/comment.js');
 require('packs/rating.js');
 require('packs/states.js');
+require('packs/customPopover.js');
 
 //= require ckeditor/init
 require("jquery");
