@@ -1,9 +1,18 @@
 <% provide(:title, 'All books') %>
 <h1>All books</h1>
 <div>
-  <% if @categories.any? %>
-    <% @categories.each do |category| %>
-      <%= link_to category.name, "/book/category/#{category.id}", role: "button", class: "btn btn-sm btn-primary" %>
+  <% if @search %>
+    <form class="form-inline" action="/books">
+      <input id="searchBook" name="searchValue" class="form-control mr-sm-2" type="search" placeholder="Search books" aria-label="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    </form>
+  <% else %>
+    <% if @categories.any? %>
+      <% @categories.each do |category| %>
+        <%= link_to category.name, "/book/category/#{category.id}", role: "button", class: "btn btn-sm btn-primary" %>
+      <% end %>
     <% end %>
   <% end %>
 </div>

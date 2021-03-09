@@ -5,12 +5,25 @@ class BooksController < ApplicationController
 	end
 
 	def index
-    @categories = Category.all
-		@books = Book.all
-    if(params[:category].present?)
-    	@category = Category.find_by id: params[:category]
-	    @books = @category.nil? ? [] : @category.books
+    @search = false;
+    if(params[:searchValue].present?)
+      @search = true;
+      @books = Book.search_book(params[:searchValue])
+    else
+      @categories = Category.all
+      @books = Book.all
+      if(params[:category].present?)
+        @category = Category.find_by id: params[:category]
+        @books = @category.nil? ? [] : @category.books
+      end
     end
+
+    #Autocomlete search
+    if(params[:data].present?)
+      @books = Book.search_book(params[:data])
+      render json: @books
+    end
+
 	end
 
 	private
