@@ -16,7 +16,16 @@ class Book < ApplicationRecord
 		message: "must be a valid image format" },
 		size: { less_than: 5.megabytes,
 			message: "should be less than 5MB" }
-
+	scope :book_by, ->field_name, value, value2 {where(
+    "#{field_name} LIKE ? OR #{field_name} LIKE ?",
+    value,
+    value2
+   )}
+	class << self
+  	def search_book(value)
+    	@reviews = Book.book_by("name", "% " + value + "%", value + "%")
+  	end
+	end
 	# Returns a resized image for display.
 	def display_image width, height
 		# Normal size 250, 357

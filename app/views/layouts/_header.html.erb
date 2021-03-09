@@ -5,9 +5,10 @@
       <%= link_to "AmazingGoodReads", root_path, id: "logo", class: "navbar-brand" %>
       <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
         <li class="nav-item"><%= link_to "Home", root_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to "Books", books_path, class:"nav-link" %></li>
         <% if logged_in? %>
         <li class="nav-item"><%= link_to "Users All", users_path, class:"nav-link" %></li>
-        <li class="nav-item"><%= link_to "My Book", favorites_path, class:"nav-link" %></li>
+        <li class="nav-item"><%= link_to "My Books", favorites_path, class:"nav-link" %></li>
         <!-- Dropdown -->
         <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
@@ -52,8 +53,17 @@
               <% end %>
             </div>
           </div>
+        </div>
           <%= javascript_pack_tag 'loginModal'%>
         <% end %>
+        <form class="form-inline autocomplete" action="/books">
+          <input id="searchBook" name="searchValue" class="form-control mr-sm-2" type="search" placeholder="Search books" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+          <%= javascript_pack_tag 'autocomplete'%>
+
       </ul>
     </nav>
   </div>
