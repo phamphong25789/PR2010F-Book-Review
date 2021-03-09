@@ -13,7 +13,6 @@ class Admin::BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @categories = Category.all
   end
 
   def edit
@@ -21,14 +20,22 @@ class Admin::BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new book_params
-    @book.image.attach(params[:book][:image])
-    if @book.save
-      flash[:success]="Book created!"
-      redirect_to admin_book_path(@book)
-    else
-      flash[:danger]="Creating book fail!"
-      redirect_to new_admin_book_path
+    @category = Category.find_by id: params[:category_id]
+    Category.transaction do
+      unless @category.present?
+        category = Category.create!(name: params[:book][:category_id])
+        params[:book][:category_id] = category.id
+      end
+      @book = Book.new book_params
+      @book.image.attach(params[:book][:image])
+      if @book.save
+        flash[:success]="Book created!"
+        redirect_to admin_book_path(@book)
+      else
+        flash[:danger]="Creating book fail!"
+        redirect_to new_admin_book_path
+        raise ActiveRecord::Rollback
+      end
     end
   end
 
