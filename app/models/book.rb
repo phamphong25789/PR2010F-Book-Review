@@ -16,9 +16,10 @@ class Book < ApplicationRecord
 		message: "must be a valid image format" },
 		size: { less_than: 5.megabytes,
 			message: "should be less than 5MB" }
+
 	# Returns a resized image for display.
 	def display_image width, height
 		# Normal size 250, 357
-		image.variant(resize_to_limit: [width, height])
+		image.variant(resize_to_fill: [width, height])
 	end
 end
