@@ -9,8 +9,9 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     if @comment.save!
       flash[:success] = "Comment created!"
-      render json: @comment, status: :ok
-      # render json: xhr.status
+
+      render json: {comment: @comment, user: @comment.user.name}, status: :ok
+      # render json: @comment, status: :ok
     else
       render 'static_pages/home'
     end
@@ -19,7 +20,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :review_id)
+    params.require(:comment).permit(:content, :user_id, :targetable_type, :targetable_id)
   end
 
   def find_review
