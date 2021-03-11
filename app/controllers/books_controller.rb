@@ -8,13 +8,14 @@ class BooksController < ApplicationController
 	end
 
 	def index
+
     @search = false;
     if(params[:searchValue].present?)
       @search = true;
       @books = Book.search_book(params[:searchValue])
     else
       @categories = Category.all
-      @books = Book.all
+      @books = Book.all.includes(:image_attachment, :author, :category)
       if(params[:category].present?)
         @category = Category.find_by id: params[:category]
         @books = @category.nil? ? [] : @category.books
