@@ -23,6 +23,8 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'ckeditor'
 gem "select2-rails"
+gem "simple_form"
+gem 'bootstrap-sass'
 
 group :development, :test do
 gem 'mysql2'

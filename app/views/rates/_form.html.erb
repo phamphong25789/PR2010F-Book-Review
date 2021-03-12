@@ -1,7 +1,7 @@
-<div class="reviewButtonContainer">
+<div class="reviewButtonContaine pt-2">
   <div id="ratingNoti" class="toast alert" role="alert">
   </div>
-  <ul class="ratingW" data-toggle="popover" data-content="Cam on ban da danh gia">
+  <ul class="ratingW">
     <li><a href="javascript:void(0);"><div class="star"></div></a></li>
     <li><a href="javascript:void(0);"><div class="star"></div></a></li>
     <li><a href="javascript:void(0);"><div class="star"></div></a></li>
@@ -9,3 +9,6 @@
     <li><a href="javascript:void(0);"><div class="star"></div></a></li>
   </ul>
 </div>
+<% if logged_in? %>
+  <%=javascript_pack_tag 'rating.js'%>
+<% end %>

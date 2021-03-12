@@ -2,6 +2,9 @@ class BooksController < ApplicationController
 	before_action :find_book, only: [:show]
 
 	def show
+    if logged_in?
+      @rate = current_user.rates.find_by(book_id: params[:id])
+    end
 	end
 
 	def index
